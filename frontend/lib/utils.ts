@@ -1,10 +1,12 @@
+import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
+
 /**
- * SIH26108 — Shared Utilities
- *
- * Minimal dependency-free utilities.
- * cn() / classname merging deferred until shadcn/ui or
- * clsx+tailwind-merge are installed by Dev A/B.
+ * Standard classname merger used across the app and by shadcn/ui components.
  */
+export function cn(...inputs: ClassValue[]): string {
+  return twMerge(clsx(inputs));
+}
 
 /**
  * Format an ISO 8601 date string for display.
